@@ -2,7 +2,7 @@ package at.td.firstGame;
 
 import org.newdawn.slick.*;
 
-public class Rectangles extends BasicGame {
+public class RectangleGame extends BasicGame {
 
     private float xRectangle;
     private float yRectangle;
@@ -16,8 +16,9 @@ public class Rectangles extends BasicGame {
     private float speed;
 
 
-    public Rectangles(String title) {
+    public RectangleGame(String title) {
         super(title);
+
     }
 
     @Override
@@ -97,7 +98,7 @@ public class Rectangles extends BasicGame {
 
     public static void main(String[] argv) {
         try {
-            AppGameContainer container = new AppGameContainer(new Rectangles("Rectangles"));
+            AppGameContainer container = new AppGameContainer(new RectangleGame("Rectangles"));
             container.setDisplayMode(800, 600, false);
             container.start();
         } catch (SlickException e) {
