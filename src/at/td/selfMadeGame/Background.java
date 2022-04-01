@@ -1,9 +1,6 @@
 package at.td.selfMadeGame;
 
-import org.newdawn.slick.BigImage;
-import org.newdawn.slick.Graphics;
-import org.newdawn.slick.Image;
-import org.newdawn.slick.SlickException;
+import org.newdawn.slick.*;
 
 public class Background implements Actor{
 
@@ -15,7 +12,7 @@ public class Background implements Actor{
 
 
     @Override
-    public void update(int delta) {
+    public void update(GameContainer gameContainer, int delta) {
 
     }
 
