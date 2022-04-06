@@ -23,6 +23,11 @@ public class Main extends BasicGame {
         this.actors.add(playerCar);
 
 
+        for (int i = 0; i < 3; i++) {
+            ComputerCar computerCar = new ComputerCar();
+            this.actors.add(computerCar);
+
+        }
     }
 
     @Override
