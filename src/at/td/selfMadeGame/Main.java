@@ -22,12 +22,11 @@ public class Main extends BasicGame {
         PlayerCar playerCar = new PlayerCar();
         this.actors.add(playerCar);
 
+        ComputerCar comBeginner = new ComputerCar(true);
+        this.actors.add(comBeginner);
 
-        for (int i = 0; i < 3; i++) {
-            ComputerCar computerCar = new ComputerCar();
-            this.actors.add(computerCar);
-
-        }
+        ComputerCar comFollower = new ComputerCar(false);
+        this.actors.add(comBeginner);
     }
 
     @Override

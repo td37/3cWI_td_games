@@ -11,28 +11,43 @@ public class ComputerCar implements Actor{
     private float x;
     private float y = -200;
     private double speed = 2;
-    private int timeToWait = 0;
+    private int timeToWaitBeginner = 0;
+    private int timetoWaitFollwer;
+    private int timetoWait2ndFollower;
     private int timePassed = 0;
+    private boolean beginner;
 
 
-    public ComputerCar() throws SlickException {
+    public ComputerCar(boolean beginner) throws SlickException {
         this.computerCar = new Image("testdata/computerCar.png");
         scaledComputerCar = computerCar.getScaledCopy(85, 170);
         Random random = new Random();
         this.x = random.nextInt(370)+420;
-        this.timeToWait = random.nextInt(2000)+3500;
+        this.timetoWaitFollwer = random.nextInt(2000)+1000;
+        this.beginner = beginner;
     }
 
     @Override
     public void update(GameContainer gameContainer, int delta) {
         this.timePassed += delta;
-        if (this.timeToWait<this.timePassed){
-            this.y += (float) delta / this.speed;
+
+        if (this.beginner){
+            if (this.timeToWaitBeginner<this.timePassed){
+                this.y += (float) delta / this.speed;
+            }
         }
+        else {
+            if (this.timetoWaitFollwer<this.timePassed) {
+                this.y += (float) delta / this.speed;
+            }
+        }
+
         if (y>725){
             reset();
         }
+
     }
+
 
     @Override
     public void render(Graphics graphics) {
@@ -43,7 +58,7 @@ public class ComputerCar implements Actor{
         Random random = new Random();
         this.timePassed = 0;
         this.x = random.nextInt(370)+420;
-        this.timeToWait = random.nextInt(2000)+3500;
+        this.timetoWaitFollwer = random.nextInt(2000)+1000;
         this.y = -200;
     }
 }
