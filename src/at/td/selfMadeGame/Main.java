@@ -7,6 +7,7 @@ import java.util.List;
 
 public class Main extends BasicGame {
     private List<Actor> actors;
+    private PlayerCar playerCar;
 
     public Main(String title) {
         super(title);
@@ -16,37 +17,39 @@ public class Main extends BasicGame {
     public void init(GameContainer gameContainer) throws SlickException {
         this.actors = new ArrayList<>();
 
+
         Background background = new Background();
         this.actors.add(background);
 
-        PlayerCar playerCar = new PlayerCar();
+        this.playerCar = new PlayerCar();
         this.actors.add(playerCar);
 
-//        ComputerCar comBeginner = new ComputerCar(ComputerCar.CARNUMBER.FIRST);
-//        this.actors.add(comBeginner);
-//
-//        ComputerCar comFollower = new ComputerCar(ComputerCar.CARNUMBER.SECOND);
-//        this.actors.add(comFollower);
-//
-//        ComputerCar com2ndFollower = new ComputerCar(ComputerCar.CARNUMBER.THIRD);
-//        this.actors.add(com2ndFollower);
-         ComputerCar c1 = new ComputerCar();
-         ComputerCar c2 = new ComputerCar();
-         ComputerCar c3 = new ComputerCar();
-         c1.setNextCar(c2);
-         c2.setNextCar(c3);
-         c3.setNextCar(c1);
+        ComputerCar c1 = new ComputerCar();
+        ComputerCar c2 = new ComputerCar();
+        ComputerCar c3 = new ComputerCar();
+        c1.setNextCar(c2);
+        c2.setNextCar(c3);
+        c3.setNextCar(c1);
 
-         this.actors.add(c1);
-         this.actors.add(c2);
-         this.actors.add(c3);
-         c1.start();
+        playerCar.addCollisionCar(c1);
+        playerCar.addCollisionCar(c2);
+        playerCar.addCollisionCar(c3);
+
+        this.actors.add(c1);
+        this.actors.add(c2);
+        this.actors.add(c3);
+
+        c1.start();
     }
 
     @Override
     public void update(GameContainer gameContainer, int delta) throws SlickException {
         for (Actor actor : this.actors) {
             actor.update(gameContainer, delta);
+        }
+
+        if (this.playerCar.hasCollision()){
+            System.out.println("Col");
         }
     }
 
