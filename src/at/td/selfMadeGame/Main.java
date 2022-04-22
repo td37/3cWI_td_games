@@ -8,6 +8,7 @@ import java.util.List;
 public class Main extends BasicGame {
     private List<Actor> actors;
     private PlayerCar playerCar;
+    private ComputerCar computerCar;
 
     public Main(String title) {
         super(title);
@@ -50,6 +51,7 @@ public class Main extends BasicGame {
 
         if (this.playerCar.hasCollision()){
             System.out.println("Col");
+
         }
     }
 

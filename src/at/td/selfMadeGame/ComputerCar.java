@@ -18,7 +18,6 @@ public class ComputerCar implements Actor{
     boolean isDriving = false;
     private Shape collisionShape;
 
-
     public ComputerCar() throws SlickException {
         setRandomXPosition();
         this.y = -200;
@@ -28,31 +27,31 @@ public class ComputerCar implements Actor{
         this.collisionShape = new Rectangle(this.x, this.y, 85, 170);
     }
 
-
     @Override
     public void update(GameContainer gameContainer, int delta) {
-        if (this.y>400 && this.y<500){
-            this.nextCar.start();
-        }
-        if (isDriving){
-            this.y += (float) delta / this.speed;
-        }
+            if (this.y>400 && this.y<500){
+                this.nextCar.start();
+            }
+            if (isDriving){
+                this.y += (float) delta / this.speed;
+            }
 
-        if (this.y > 700){
-            this.isDriving = false;
-            this.y = -200;
-            setRandomXPosition();
-            setSpeedFaster();
-        }
 
-        this.collisionShape.setX(this.x);
-        this.collisionShape.setY(this.y);
+            if (this.y > 700){
+                this.isDriving = false;
+                this.y = -200;
+                setRandomXPosition();
+                setSpeedFaster();
+            }
+
+            this.collisionShape.setX(this.x);
+            this.collisionShape.setY(this.y);
     }
 
     @Override
     public void render(Graphics graphics) {
         scaledComputerCar.draw(this.x, this.y);
-        graphics.draw(collisionShape);
+        //graphics.draw(collisionShape);
     }
 
     public void start(){
@@ -64,14 +63,13 @@ public class ComputerCar implements Actor{
     }
 
     private void setRandomXPosition() {
-        this.x = (new Random()).nextInt(370) + 420;
+        this.x = (new Random()).nextInt(390) + 380;
     }
 
     public void setSpeedFaster() {
         if(this.speed>0.8){
             this.speed -= 0.05;
         }
-
     }
 
     public void setNextCar(ComputerCar nextCar) {
@@ -82,7 +80,7 @@ public class ComputerCar implements Actor{
         return collisionShape;
     }
 
-    public void setCollisionShape(Shape collisionShape) {
-        this.collisionShape = collisionShape;
+    public boolean isDriving() {
+        return isDriving;
     }
 }

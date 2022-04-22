@@ -16,6 +16,7 @@ public class PlayerCar implements Actor {
     private double speed = 1;
     private Shape collisionShape;
     private List<ComputerCar> computerCars;
+    private boolean notCrashed = true;
 
     public PlayerCar() throws SlickException {
         this.playerCar = new Image("testdata/playerCar.png");
@@ -26,26 +27,27 @@ public class PlayerCar implements Actor {
 
     @Override
     public void update(GameContainer gameContainer, int delta) {
-        if (gameContainer.getInput().isKeyDown(Input.KEY_RIGHT)) {
-            if (this.x < 790) {
-                this.x++; //= (float) delta / this.speed;
+        if(notCrashed){
+            if (gameContainer.getInput().isKeyDown(Input.KEY_RIGHT)) {
+                if (this.x < 790) {
+                    this.x++; //= (float) delta / this.speed;
+                }
             }
-        }
-        if (gameContainer.getInput().isKeyDown(Input.KEY_LEFT)) {
-            if (this.x > 420) {
-                this.x -= (float) delta / this.speed;
+            if (gameContainer.getInput().isKeyDown(Input.KEY_LEFT)) {
+                if (this.x > 420) {
+                    this.x -= (float) delta / this.speed;
+                }
             }
         }
 
         this.collisionShape.setX(this.x);
         this.collisionShape.setY(this.y);
-
     }
 
     @Override
     public void render(Graphics graphics) {
         scaledPlayerCar.draw(this.x, this.y);
-        graphics.draw(collisionShape);
+        //graphics.draw(collisionShape);
     }
 
     public void addCollisionCar(ComputerCar computerCar) {
@@ -55,11 +57,12 @@ public class PlayerCar implements Actor {
     public boolean hasCollision() {
         for (ComputerCar car : this.computerCars) {
             if (car.getCollisionShape().intersects(this.collisionShape)){
-
-
+                this.notCrashed = false;
                 return true;
             }
         }
         return false;
     }
+
+
 }
