@@ -53,7 +53,12 @@ public class PlayerCar implements Actor {
         scaledPlayerCar.draw(this.x, this.y);
         graphics.drawString("Your Score: " + Integer.toString(this.score), 10, 50);
         //graphics.draw(collisionShape);
+        if(hasCollision().isHasCollision()){
+            graphics.drawString("!!DAMN BOY YOU CRASHED!!", 542, 300);
+        }
+
     }
+
 
     public void addCollisionCar(ComputerCar computerCar) {
         this.computerCars.add(computerCar);
