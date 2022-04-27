@@ -49,8 +49,9 @@ public class Main extends BasicGame {
             actor.update(gameContainer, delta);
         }
 
-        if (this.playerCar.hasCollision()){
-            System.out.println("Col");
+        CollisionObject collisionObject = this.playerCar.hasCollision();
+        if (collisionObject.isHasCollision()){
+            collisionObject.getComputerCar().end();
 
         }
     }

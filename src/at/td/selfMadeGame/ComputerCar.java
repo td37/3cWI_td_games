@@ -17,6 +17,7 @@ public class ComputerCar implements Actor{
     private float speed = 1.5f;
     boolean isDriving = false;
     private Shape collisionShape;
+    private boolean notCrashed = true;
 
     public ComputerCar() throws SlickException {
         setRandomXPosition();
@@ -29,6 +30,7 @@ public class ComputerCar implements Actor{
 
     @Override
     public void update(GameContainer gameContainer, int delta) {
+        if (this.notCrashed){
             if (this.y>400 && this.y<500){
                 this.nextCar.start();
             }
@@ -46,6 +48,8 @@ public class ComputerCar implements Actor{
 
             this.collisionShape.setX(this.x);
             this.collisionShape.setY(this.y);
+        }
+
     }
 
     @Override
@@ -58,12 +62,16 @@ public class ComputerCar implements Actor{
         this.isDriving = true;
     }
 
+    public void end(){
+        this.notCrashed = false;
+    }
+
     public ComputerCar getNextCar() {
         return nextCar;
     }
 
     private void setRandomXPosition() {
-        this.x = (new Random()).nextInt(390) + 380;
+        this.x = (new Random()).nextInt(350) + 430;
     }
 
     public void setSpeedFaster() {
