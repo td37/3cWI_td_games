@@ -17,6 +17,7 @@ public class PlayerCar implements Actor {
     private Shape collisionShape;
     private List<ComputerCar> computerCars;
     private boolean notCrashed = true;
+    private int score = 0;
 
     public PlayerCar() throws SlickException {
         this.playerCar = new Image("testdata/playerCar.png");
@@ -38,15 +39,19 @@ public class PlayerCar implements Actor {
                     this.x -= (float) delta / this.speed;
                 }
             }
+            this.score += delta;
         }
 
         this.collisionShape.setX(this.x);
         this.collisionShape.setY(this.y);
+
+
     }
 
     @Override
     public void render(Graphics graphics) {
         scaledPlayerCar.draw(this.x, this.y);
+        graphics.drawString("Your Score: " + Integer.toString(this.score), 10, 50);
         //graphics.draw(collisionShape);
     }
 

@@ -10,6 +10,7 @@ public class Main extends BasicGame {
     private PlayerCar playerCar;
     private ComputerCar computerCar;
 
+
     public Main(String title) {
         super(title);
     }
@@ -52,8 +53,9 @@ public class Main extends BasicGame {
         CollisionObject collisionObject = this.playerCar.hasCollision();
         if (collisionObject.isHasCollision()){
             collisionObject.getComputerCar().end();
-
         }
+
+
     }
 
     @Override
@@ -61,6 +63,7 @@ public class Main extends BasicGame {
         for (Actor actor : this.actors) {
             actor.render(graphics);
         }
+
     }
 
     public static void main(String[] argv) {
