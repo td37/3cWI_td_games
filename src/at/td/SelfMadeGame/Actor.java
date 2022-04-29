@@ -1,4 +1,4 @@
-package at.td.RacingGame;
+package at.td.SelfMadeGame;
 
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;

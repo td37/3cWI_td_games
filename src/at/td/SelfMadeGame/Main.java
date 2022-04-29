@@ -1,4 +1,4 @@
-package at.td.RacingGame;
+package at.td.SelfMadeGame;
 
 import org.newdawn.slick.*;
 
@@ -70,7 +70,7 @@ public class Main extends BasicGame {
 
     public static void main(String[] argv) {
         try {
-            AppGameContainer container = new AppGameContainer(new at.td.RacingGame.Main("Formel1 Race"));
+            AppGameContainer container = new AppGameContainer(new at.td.SelfMadeGame.Main("Formel1 Race"));
             container.setDisplayMode(1280, 720, false);
             container.start();
         } catch (SlickException e) {

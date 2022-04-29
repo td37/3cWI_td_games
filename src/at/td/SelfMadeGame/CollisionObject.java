@@ -1,4 +1,4 @@
-package at.td.RacingGame;
+package at.td.SelfMadeGame;
 
 public class CollisionObject {
     private boolean hasCollision;
