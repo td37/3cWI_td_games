@@ -1,4 +1,4 @@
-package at.td.selfMadeGame;
+package at.td.RacingGame;
 
 import org.newdawn.slick.*;
 import org.newdawn.slick.geom.Rectangle;

@@ -1,14 +1,17 @@
-package at.td.selfMadeGame;
+package at.td.RacingGame;
 
 import org.newdawn.slick.*;
 
+
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class Main extends BasicGame {
     private List<Actor> actors;
     private PlayerCar playerCar;
     private ComputerCar computerCar;
+
 
 
     public Main(String title) {
@@ -18,7 +21,6 @@ public class Main extends BasicGame {
     @Override
     public void init(GameContainer gameContainer) throws SlickException {
         this.actors = new ArrayList<>();
-
 
         Background background = new Background();
         this.actors.add(background);
@@ -68,11 +70,12 @@ public class Main extends BasicGame {
 
     public static void main(String[] argv) {
         try {
-            AppGameContainer container = new AppGameContainer(new at.td.selfMadeGame.Main("Formel1 Race"));
+            AppGameContainer container = new AppGameContainer(new at.td.RacingGame.Main("Formel1 Race"));
             container.setDisplayMode(1280, 720, false);
             container.start();
         } catch (SlickException e) {
             e.printStackTrace();
         }
     }
+
 }
