@@ -7,10 +7,7 @@ public class GamePoint {
     public GamePoint(){
 
     }
-    public GamePoint(int x, int y) {
-        this.x = x;
-        this.y = y;
-    }
+
 
     public int getX() {
         return x;

@@ -34,6 +34,7 @@ public class Figure implements Actor {
     public void render(Graphics graphics) {
         FigurePosition fp = new FigurePosition();
         GamePoint point = fp.getFigurePosition(this.figureId);
+        PlayerViewFigure player = new PlayerViewFigure();
 
         graphics.setColor(Color.black);
 
@@ -41,7 +42,8 @@ public class Figure implements Actor {
 
         graphics.setColor(FigureColor.getColorForFigure(this.color));
         graphics.fillOval(point.getX() + (this.diameterBase - this.diameterTop) / 2, point.getY() + (this.diameterBase - this.diameterTop) / 2, this.diameterTop, this.diameterTop);
-
+        graphics.setColor(Color.black);
+        graphics.drawString(String.valueOf(player.getPlayerViewFigureId(this.figureId)), point.getX()+20, point.getY()+15);
     }
 
 

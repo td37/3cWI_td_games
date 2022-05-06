@@ -9,7 +9,7 @@ public class FigureColor {
             case RED:
                 return new Color(255,50,50);
             case GRAY:
-                return new Color(47,79,79);
+                return new Color(117,117,117);
             case YELLOW:
                 return new Color(255, 255, 80);
             case GREEN:
