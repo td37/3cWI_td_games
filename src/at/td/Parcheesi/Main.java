@@ -24,19 +24,19 @@ public class Main extends BasicGame {
 
         while (this.Id < 16){
             if(this.Id < 4){
-                Figure figure = new Figure(Figure.COLOR.RED, this.Id);
-                this.actors.add(figure);
-            }
-            else if (3 < this.Id && this.Id < 8){
-                Figure figure = new Figure(Figure.COLOR.BLACK, this.Id);
-                this.actors.add(figure);
-            }
-            else if (7 < this.Id && this.Id < 12){
                 Figure figure = new Figure(Figure.COLOR.YELLOW, this.Id);
                 this.actors.add(figure);
             }
+            else if (3 < this.Id && this.Id < 8){
+                Figure figure = new Figure(Figure.COLOR.GREEN, this.Id);
+                this.actors.add(figure);
+            }
+            else if (7 < this.Id && this.Id < 12){
+                Figure figure = new Figure(Figure.COLOR.GRAY, this.Id);
+                this.actors.add(figure);
+            }
             else if (11 < this.Id && this.Id < 16){
-                Figure figure = new Figure(Figure.COLOR.BLACK, this.Id);
+                Figure figure = new Figure(Figure.COLOR.RED, this.Id);
                 this.actors.add(figure);
             }
 
