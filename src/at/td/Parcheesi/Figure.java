@@ -8,6 +8,7 @@ import java.awt.BasicStroke;
 
 import java.awt.*;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Figure implements Actor {
 
@@ -19,6 +20,9 @@ public class Figure implements Actor {
     private float diameterTop = 45;
     private COLOR color;
     private int figureId;
+    private int movingFigureId;
+    private String movingFigureColor;
+    private int diceValue;
 
     public Figure(COLOR color, int figureId) {
         this.color = color;
@@ -27,6 +31,17 @@ public class Figure implements Actor {
 
     @Override
     public void update(GameContainer gameContainer, int delta) {
+        Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
+
+        System.out.println("Bitte gib die Farbe an die am Zug ist.");
+        movingFigureColor = scanner.next();
+        System.out.println("Bitte gib die Nummer des Kegels an, den du bewegen möchtest.");
+        movingFigureId = scanner.nextInt();
+
+        diceValue = random.nextInt(5)+1;
+
+        //if(this.figureId == movingFigureId && FigureColor.getColorForFigure(this.color) == this.movingFigureColor)
 
     }
 
