@@ -8,6 +8,7 @@ import java.util.List;
 public class Main extends BasicGame {
 
     private List<Actor> actors;
+    private List<Figure> figures;
     private int Id = 0;
 
     public Main(String title) {
@@ -18,6 +19,7 @@ public class Main extends BasicGame {
     @Override
     public void init(GameContainer gameContainer) throws SlickException {
         this.actors = new ArrayList<>();
+        this.figures = new ArrayList<>();
 
         Playboard playboard = new Playboard();
         this.actors.add(playboard);
