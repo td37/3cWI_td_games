@@ -3,10 +3,6 @@ package at.td.Parcheesi;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
-
-import java.awt.BasicStroke;
-
-import java.awt.*;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -47,8 +43,8 @@ public class Figure implements Actor {
 
     @Override
     public void render(Graphics graphics) {
-        FigurePosition fp = new FigurePosition();
-        GamePoint point = fp.getFigurePosition(this.figureId);
+        FigureStartPosition fp = new FigureStartPosition();
+        GamePoint point = fp.getFigureStartPosition(this.figureId);
         PlayerViewFigure player = new PlayerViewFigure();
 
         graphics.setColor(Color.black);

@@ -1,7 +1,7 @@
 package at.td.Parcheesi;
 
-public class FigurePosition {
-    public GamePoint getFigurePosition(int Id) {
+public class FigureStartPosition {
+    public GamePoint getFigureStartPosition(int Id) {
         GamePoint point = new GamePoint();
 
         if (Id == 0) {
